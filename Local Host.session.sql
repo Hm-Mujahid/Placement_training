@@ -1,0 +1,47 @@
+drop table Employee;
+create table Employee (
+    EID INT PRIMARY KEY,
+    ENAME VARCHAR(50),
+    DEPT VARCHAR(30),
+    SALARAY DECIMAL(10,2),
+    AGE INT,
+    BONUS INT,
+    MANAGERID INTEGER,
+    JOINDATE DATE,
+    GMAIL VARCHAR(100)
+);
+INSERT INTO Employee VALUES
+(1,'PRABHAS A','HR',50000,40,10000,1001,'2024-01-01','prabhas@gmail.com'),
+(2,'NANI B','MARKETING',40000,38,8000,1002,'2023-04-12','nani@gmail.com'),
+(3,'BABU C','HR',50000,42,10000,1003,'2024-04-01','babu@gmail.com'),
+(4,'BHAI D','SOFTWARE',NULL,39,10000,1004,'2023-07-07','bhai@gmail.com'),
+(5,'NTR E','MARKETING',47000,41,10000,1005,'2023-01-01','ntr@gmail.com'),
+(6,'RANA F','SOFTWARE',30000,40,NULL,1006,'2025-09-09','rana@gmail.com'),
+(7,NULL,'HR',42000,38,9000,1007,'2021-08-01',NULL),
+(8,'RAM H','SOFTWARE',50000,41,10000,1008,'2020-01-01','ram@gmail.com'),
+(9,'PAVAN K','HR',44000,49,8500,1009,'2015-07-01','PAVAN@GMAIL.COM'),
+(10,'SHARWA N','SOFTWARE',39000,38,8000,1010,'2025-09-01','SHARWA@GMAIL.COM');
+
+select AVG(SALARAY) AS AVGSALARY from Employee;
+select SUM(SALARAY) AS TSAL FROM Employee;
+SELECT COUNT(*) FROM Employee;
+
+SELECT DEPT, GROUP_CONCAT(ENAME) AS EMPLOYEES
+FROM Employee
+GROUP BY DEPT;
+
+SELECT DEPT, GROUP_CONCAT(ENAME) AS EMPLOYEES FROM Employee
+GROUP BY DEPT;
+select avg(SALARAY)from Employee
+group by dept;
+
+
+SELECT DEPT, GROUP_CONCAT(ENAME) AS EMPLOYEES FROM Employee
+GROUP BY DEPT;
+
+select dept,avg(SALARAY)from Employee
+group by dept;
+
+select dept,avg(SALARAY) as avgsal from Employee
+group by dept
+having avgsal>40000;

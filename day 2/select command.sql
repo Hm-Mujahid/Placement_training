@@ -1,8 +1,9 @@
+CREATE DATABASE placement_training;
 drop table employee;
 create table employee(
   ID int,
   name varchar(50),
-  salary decimal(2.2),
+  salary decimal(10,2),
   Mid int,
   bonus int);
 
