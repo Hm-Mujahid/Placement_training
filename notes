@@ -1,0 +1,107 @@
+/*A Primary Key uniquely identifies each row and cannot contain duplicate or NULL values.
+A Foreign Key creates a relationship between two tables by referencing a primary key in another table.
+A Candidate Key is any column that can uniquely identify a row and can potentially become the primary key.
+A Composite Key is formed by combining two or more columns to uniquely identify a record.
+SQL is used to create, manage, and query databases efficiently.
+
+MODULE 2--DDL(data Defination Language)
+Truncate - deletes all the records but keep the table
+DDL stands for Data Definition Language.
+CREATE DATABASE creates a database.
+USE selects a database.
+CREATE TABLE creates a new table.
+Common data types: INT, VARCHAR, DECIMAL, DATE.
+ALTER TABLE modifies a table.
+ADD adds a column.
+MODIFY changes a column datatype.
+DROP TABLE deletes a table completely.
+TRUNCATE TABLE deletes all rows but keeps the table.
+
+
+MODULE-3--DML(Data Manipulation Language)
+Select DISTINCT col_name  -- returns all the distinct values in the column
+SET -- we can modify values of the rows
+       UPDATE students
+       SET age=23
+           branch='ai'
+        where id=10
+DML = Data Manipulation Language.
+INSERT INTO adds new records.
+SELECT retrieves data.
+SELECT * shows all columns.
+SELECT column_name shows specific columns.
+DISTINCT removes duplicates from output.
+UPDATE modifies existing data.
+SET specifies new values.
+WHERE selects specific rows.
+DELETE removes records from a table.
+
+MODULE 4 --filter commands
+WHERE filters records.
+= checks equality.
+>, <, >=, <= compare values.
+AND requires all conditions to be true.
+OR requires at least one condition to be true.
+NOT reverses a condition.
+BETWEEN filters a range.
+IN checks multiple values.
+LIKE performs pattern matching.
+% = any number of characters.
+_ = exactly one character.
+IS NULL checks empty values.
+
+
+
+MODULE 5 --
+ORDER BY sorts data.
+ASC = Ascending order.
+DESC = Descending order.
+Multiple columns can be used in ORDER BY.
+LIMIT restricts the number of rows returned.
+LIMIT 1 is often used to find top records.
+DISTINCT removes duplicate values.
+AS creates temporary names (aliases).
+Aliases improve readability.
+ORDER BY + LIMIT is commonly used in interviews.
+
+module 6 -- aGGREGATE FUNCTIONS
+Aggregate functions perform calculations on multiple rows.
+COUNT() counts rows.
+SUM() adds values.
+AVG() calculates average.
+MAX() finds the highest value.
+MIN() finds the lowest value.
+Aggregate functions return a single result.
+They are often used with WHERE.
+Aliases (AS) make output readable.
+Aggregate functions are heavily used in reports and dashboards.
+
+
+MODULE 6 --GROUP BY and HAVING
+GROUP BY creates groups based on column values.
+It is used with aggregate functions.
+COUNT() counts records per group.
+AVG() finds average per group.
+SUM() finds total per group.
+MAX() finds highest value per group.
+MIN() finds lowest value per group.
+HAVING filters groups.
+WHERE filters rows.
+Execution order: WHERE → GROUP BY → HAVING → SELECT.
+
+MODULE-7--JOINS
+JOIN combines data from multiple tables.
+INNER JOIN returns matching records only.
+LEFT JOIN returns all left-table records.
+RIGHT JOIN returns all right-table records.
+FULL JOIN returns all records from both tables.
+SELF JOIN joins a table with itself.
+ON specifies the joining condition.
+Aliases make queries shorter.
+JOINs are heavily used in projects and interviews.
+Foreign Keys are commonly used with JOINs.
+
+
+
+
+
