@@ -1,0 +1,426 @@
+Pattern 1: Simple Filtering ⭐⭐⭐⭐⭐
+Question words
+Find
+Show
+Employees older than 30
+Customers from India
+Use
+SELECT ...
+FROM table
+WHERE condition;
+
+Example
+
+SELECT *
+FROM Employee
+WHERE salary > 50000;
+Pattern 2: Remove Duplicates ⭐⭐⭐⭐
+
+Question words
+
+Unique
+Distinct
+
+Use
+
+SELECT DISTINCT column
+FROM table;
+Pattern 3: Sorting ⭐⭐⭐⭐
+
+Question words
+
+Highest
+Lowest
+Latest
+Earliest
+
+Use
+
+ORDER BY column DESC
+
+or
+
+ORDER BY column ASC
+Pattern 4: Top N ⭐⭐⭐⭐⭐
+
+Question words
+
+Highest salary
+Top 5
+Largest
+Smallest
+
+Use
+
+ORDER BY salary DESC
+LIMIT 5;
+
+or
+
+DENSE_RANK()
+Pattern 5: Frequency Count ⭐⭐⭐⭐⭐
+
+Question words
+
+Appears once
+Number of employees
+Count products
+Frequency
+
+Use
+
+GROUP BY
+COUNT()
+
+Example
+
+SELECT department,
+COUNT(*)
+FROM Employee
+GROUP BY department;
+Pattern 6: Filter Groups ⭐⭐⭐⭐⭐
+
+Question words
+
+Departments with more than 5 employees
+Numbers appearing once
+
+Use
+
+GROUP BY
+
+HAVING
+
+Example
+
+GROUP BY department
+
+HAVING COUNT(*) > 5
+Pattern 7: Aggregate Calculation ⭐⭐⭐⭐⭐
+
+Question words
+
+Average
+Total
+Maximum
+Minimum
+
+Use
+
+AVG()
+
+SUM()
+
+MAX()
+
+MIN()
+
+COUNT()
+Pattern 8: Compare with Average ⭐⭐⭐⭐⭐
+
+Question words
+
+Above average
+Below average
+Greater than average salary
+
+Use
+
+Subquery
+
+WHERE salary >
+
+(
+SELECT AVG(salary)
+FROM Employee
+)
+Pattern 9: Two Tables ⭐⭐⭐⭐⭐
+
+Question words
+
+Employee name + Department name
+Customer + Orders
+
+Use
+
+JOIN
+
+Example
+
+Employee
+
+↓
+
+Department
+
+↓
+
+JOIN
+Pattern 10: Compare Rows ⭐⭐⭐⭐⭐
+
+Question words
+
+Yesterday
+Previous row
+Next row
+Consecutive
+
+Use
+
+SELF JOIN
+
+or
+
+LAG()
+
+LEAD()
+
+Example
+
+Weather Problem
+
+↓
+
+Yesterday
+
+↓
+
+SELF JOIN
+
+Pattern 11: Ranking ⭐⭐⭐⭐⭐
+
+Question words
+
+First
+Second
+Third
+Top salary
+Rank
+
+Use
+
+ROW_NUMBER()
+
+RANK()
+
+DENSE_RANK()
+Pattern 12: Running Total ⭐⭐⭐
+
+Question words
+
+Running total
+Cumulative sum
+
+Use
+
+SUM()
+
+OVER()
+Pattern 13: Missing Data ⭐⭐⭐⭐
+
+Question words
+
+No orders
+Never purchased
+Missing department
+
+Use
+
+LEFT JOIN
+
+WHERE right_table.id IS NULL
+Pattern 14: NULL Handling ⭐⭐⭐⭐
+
+Question words
+
+Replace NULL
+
+Use
+
+COALESCE()
+
+IFNULL()
+Pattern 15: Conditional Output ⭐⭐⭐⭐⭐
+
+Question words
+
+Grade
+Status
+If marks >90
+
+Use
+
+CASE
+WHEN
+THEN
+END
+Pattern 16: String Operations ⭐⭐⭐
+
+Question words
+
+Uppercase
+Lowercase
+First 3 letters
+
+Use
+
+UPPER()
+
+LOWER()
+
+SUBSTRING()
+
+CONCAT()
+Pattern 17: Date Problems ⭐⭐⭐⭐
+
+Question words
+
+Last 30 days
+Current date
+Difference between dates
+
+Use
+
+DATEDIFF()
+
+DATE_ADD()
+
+DATE_SUB()
+
+NOW()
+Pattern 18: Largest After Filtering ⭐⭐⭐⭐⭐
+
+Question words
+
+Largest number appearing once
+
+Use
+
+GROUP BY
+
+↓
+
+HAVING
+
+↓
+
+Subquery
+
+↓
+
+MAX()
+
+Exactly like the MyNumbers problem.
+
+Pattern 19: Exists / Doesn't Exist ⭐⭐⭐⭐
+
+Question words
+
+Exists
+Not exists
+At least one
+
+Use
+
+EXISTS
+
+NOT EXISTS
+Pattern 20: Common Table Expression ⭐⭐⭐
+
+Question words
+
+Very long query
+Reuse query
+
+Use
+
+WITH
+Decision Tree
+
+This is what you should think during interviews.
+
+Read Question
+
+│
+├── Need one table?
+│      │
+│      ├── YES
+│      │      │
+│      │      ├── Need filtering?
+│      │      │        → WHERE
+│      │      │
+│      │      ├── Need counting?
+│      │      │        → COUNT
+│      │      │
+│      │      ├── Need grouping?
+│      │      │        → GROUP BY
+│      │      │
+│      │      ├── Need group filtering?
+│      │      │        → HAVING
+│      │      │
+│      │      ├── Need largest?
+│      │      │        → ORDER BY / MAX
+│      │      │
+│      │      ├── Need ranking?
+│      │      │        → Window Function
+│      │      │
+│      │      └── Need previous row?
+│      │               → LAG / SELF JOIN
+│      │
+│      └── NO
+│
+├── Need multiple tables?
+│      │
+│      └── JOIN
+│
+├── Need average comparison?
+│      │
+│      └── Subquery
+│
+└── Need NULL replacement?
+       │
+       └── COALESCE
+The 80/20 Rule for SQL Interviews
+
+If you master just these patterns, you'll solve around 80–90% of LeetCode SQL 50.
+
+Priority	Patterns
+⭐⭐⭐⭐⭐ Must Know	WHERE, GROUP BY, HAVING, JOIN, COUNT, AVG, SUM, MAX, MIN, ORDER BY, LIMIT
+⭐⭐⭐⭐ Very Important	Subqueries, Window Functions, DISTINCT, COALESCE, CASE
+⭐⭐⭐ Nice to Know	CTEs, EXISTS, Date Functions, String Functions
+My Recommendation for Your Placement Preparation
+
+Since you've finished learning SQL syntax, I recommend we stop learning new topics and switch to Pattern-Based SQL Training.
+
+For each LeetCode SQL problem, we'll use this template:
+
+Question Type:
+____________________
+
+Pattern:
+____________________
+
+Tables:
+____________________
+
+Need JOIN?
+YES / NO
+
+Need GROUP BY?
+YES / NO
+
+Need Aggregate?
+COUNT / SUM / AVG / MAX / MIN
+
+Need HAVING?
+YES / NO
+
+Need Subquery?
+YES / NO
+
+Need Window Function?
+YES / NO
+
+Final Query:
+
+This forces you to identify the pattern before writing SQL, which is exactly how experienced SQL developers approach interview problems. After 30–50 problems, you'll recognize these patterns almost automatically.
